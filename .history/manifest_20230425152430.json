@@ -1,6 +1,6 @@
 {
     "lang": "en-us",
-    "name": "demo",
+    "name": "Temperature converter app",
     "short_name": "Temperature converter",
     "description": "A basic temperature converter application that can convert to and from Celsius, Kelvin, and Fahrenheit",
     "start_url": "/pwa/index.html",
@@ -10,9 +10,8 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "https://resource.fuyeor.com/res/icon/nav.png",
-            "type":"image/png",
-            "sizes": "96x96"
+            "src": "icon512.png",
+            "sizes": "512x512"
         }
     ]
 }
