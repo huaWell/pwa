@@ -19,14 +19,14 @@ self.addEventListener('fetch', event => {
     // Get the resource from the cache.
     const cachedResponse = await cache.match(event.request);
 
-    //cachedResponse.headers['Service-Worker-Allowed'] = "/"
+    cachedResponse.headers['Service-Worker-Allowed'] = "/"
 
     if (cachedResponse) {
       return cachedResponse;
     } else {
         try {
           // If the resource was not in the cache, try the network.
-          const fetchResponse = await fetch(event.request);
+          //const fetchResponse = await fetch(event.request);
 
           // Save the resource in the cache and return it.
           cache.put(event.request, fetchResponse.clone());

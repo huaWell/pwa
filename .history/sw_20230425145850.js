@@ -19,7 +19,7 @@ self.addEventListener('fetch', event => {
     // Get the resource from the cache.
     const cachedResponse = await cache.match(event.request);
 
-    //cachedResponse.headers['Service-Worker-Allowed'] = "/"
+    cachedResponse.headers['Service-Worker-Allowed'] = "/"
 
     if (cachedResponse) {
       return cachedResponse;
