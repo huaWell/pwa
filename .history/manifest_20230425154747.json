@@ -11,8 +11,8 @@
     "icons": [
         {
             "src": "https://resource.fuyeor.com/res/icon/nav.png",
-            "sizes": "96x96",
-            "type":"image/png"
+            "type":"image/png",
+            "sizes": "96x96"
         }
     ]
 }
