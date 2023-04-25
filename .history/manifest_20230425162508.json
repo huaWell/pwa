@@ -1,0 +1,23 @@
+{
+    "lang": "en-us",
+    "name": "demo",
+    "short_name": "demo",
+    "description": "this is a demo",
+    "start_url": "/index.html",
+    "background_color": "#2f3d58",
+    "theme_color": "#2f3d58",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/pwa/logo.png",
+            "sizes": "128x128",
+            "type":"image/png"
+        }
+    ],
+    "related_applications":[
+        {
+            "platform":"web"
+        }
+    ]
+}
