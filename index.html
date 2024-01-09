@@ -42,10 +42,38 @@
         if('serviceWorker' in navigator) {
           navigator.serviceWorker.register('sw.js', { scope: '/pwa/' }).then(res=>{
               console.log('注册成功')
+
+              var appPromptEvent = null;
+             
+              
+              window.addEventListener('beforeinstallprompt', event => {
+                console.log('触发事件：beforeinstallprompt');
+                    event.preventDefault();
+                    appPromptEvent = event;
+                    return false;
+              })
+
+              var installBtn = document.getElementById('installBtn');
+              installBtn.addEventListener('click', function() {
+                    if (appPromptEvent !== null) {
+                        appPromptEvent.prompt();
+                        appPromptEvent.userChoice.then(function(result) {
+                            if (result.outcome == 'accepted') {
+                                console.log('同意安装应用');
+                                // 记录安装次数
+                                // 请求数据埋点接口，记录安装数量
+                            } else {
+                                console.log('不同意安装应用');
+                            }
+                            appPromptEvent = null;
+                        });
+                    }
+                });
           }).catch(err=>{
               console.log(err)
           });
         }
+
         </script>
 </body>
 </html>
