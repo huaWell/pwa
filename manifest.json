@@ -9,15 +9,7 @@
     "orientation": "any",
     "display": "standalone",
     "icons": [
-        {
-            "src": "images/hello-icon-128.png",
-              "sizes": "128x128",
-              "type": "image/png"
-            }, {
-              "src": "images/hello-icon-144.png",
-              "sizes": "144x144",
-              "type": "image/png"
-            }, {
+            {
               "src": "images/hello-icon-152.png",
               "sizes": "152x152",
               "type": "image/png"
