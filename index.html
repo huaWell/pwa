@@ -16,9 +16,14 @@
     <meta name="apple-mobile-web-app-title" content="Hello World">
     <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
-
+    <style>
+        .installApp{
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <button class="installApp">install</button>
     <form id="converter">
         <label for="input-temp">temperature</label>
         <input type="text" id="input-temp" name="input-temp" value="20" />
@@ -49,17 +54,6 @@
                  
               // 下载按钮
               let installBtn = document.querySelector('.installApp')
-
-              window.addEventListener('beforeinstallprompt', event => {
-                console.log('触发事件：beforeinstallprompt');
-                    event.preventDefault();
-                    appPromptEvent = event;
-                    appPromptEvent.prompt()
-                    return false;
-              }).catch(err=>{
-                  console.log(err)
-              });
-
               // 点击下载按钮
               installBtn.addEventListener('click', () => {
                   if (appPromptEvent !== null) {
@@ -77,6 +71,18 @@
                       })
                   }
               }) 
+
+              window.addEventListener('beforeinstallprompt', event => {
+                console.log('触发事件：beforeinstallprompt');
+                    event.preventDefault();
+                    appPromptEvent = event;
+                    installBtn.click()
+                    return false;
+              }).catch(err=>{
+                  console.log(err)
+              });
+
+             
           }
         </script>
 </body>
