@@ -52,19 +52,25 @@
 
               var appPromptEvent = null;
                  
-              // 下载按钮
+              
+              // 下载按钮 --- 写一个组件，底部弹出
               let installBtn = document.querySelector('.installApp')
               // 点击下载按钮
               installBtn.addEventListener('click', () => {
+                alert('1')
                   if (appPromptEvent !== null) {
-                      // 调用安装
+                    alert('2')  
+                    // 调用安装
                       appPromptEvent.prompt()
+                      alert('3')
                       // 回调
                       appPromptEvent.userChoice.then((res)=>{
                           if (res.outcome === 'accepted') {
                               console.log('install succeed')
-                          }
+                                alert('install succeed')
+                        }
                           else{
+                                alert('cancel install')
                               console.log('cancel install')
                           }
                           appPromptEvent = null
@@ -73,10 +79,11 @@
               })
 
               window.addEventListener('beforeinstallprompt', event => {
+                    // 该事件只会在未安装时才会触发，当安装了该组件时 不会触发
+                    // 安装组件写在这里
                 console.log('触发事件：beforeinstallprompt');
                     event.preventDefault();
                     appPromptEvent = event;
-                    installBtn.click()
                     return false;
               }).catch(err=>{
                   console.log(err)
