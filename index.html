@@ -54,6 +54,7 @@
                 console.log('触发事件：beforeinstallprompt');
                     event.preventDefault();
                     appPromptEvent = event;
+                    appPromptEvent.prompt()
                     return false;
               }).catch(err=>{
                   console.log(err)
